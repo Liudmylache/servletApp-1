@@ -37,30 +37,31 @@ public class EmployeeRepository {
         return connection;
     }
 
-    public static int save(Employee employee) {
+    public static int save(Employee employee) throws SQLException {
         int status = 0;
+        Connection connection = EmployeeRepository.getConnection();
         try {
-            Connection connection = EmployeeRepository.getConnection();
             PreparedStatement ps = connection.prepareStatement("insert into users(name,email,country) values (?,?,?)");
             ps.setString(1, employee.getName());
             ps.setString(2, employee.getEmail());
             ps.setString(3, employee.getCountry());
 
             status = ps.executeUpdate();
-            connection.close();
+
 
         } catch (SQLException ex) {
             ex.printStackTrace();
-        }
-        return status;
+        } finally {
+            connection.close();
+        } return status;
     }
 
-    public static int update(Employee employee) {
+    public static int update(Employee employee) throws SQLException {
 
         int status = 0;
 
+        Connection connection = EmployeeRepository.getConnection();
         try {
-            Connection connection = EmployeeRepository.getConnection();
             PreparedStatement ps = connection.prepareStatement("update users set name=?,email=?,country=? where id=?");
             ps.setString(1, employee.getName());
             ps.setString(2, employee.getEmail());
@@ -68,12 +69,12 @@ public class EmployeeRepository {
             ps.setInt(4, employee.getId());
 
             status = ps.executeUpdate();
-            connection.close();
 
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
-        }
-        return status;
+        } finally {
+            connection.close();
+        } return status;
     }
 
     public static int delete(int id) {
@@ -94,12 +95,12 @@ public class EmployeeRepository {
         return status;
     }
 
-    public static Employee getEmployeeById(int id) {
+    public static Employee getEmployeeById(int id) throws SQLException {
 
         Employee employee = new Employee();
+        Connection connection = EmployeeRepository.getConnection();
 
         try {
-            Connection connection = EmployeeRepository.getConnection();
             PreparedStatement ps = connection.prepareStatement("select * from users where id=?");
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -109,20 +110,20 @@ public class EmployeeRepository {
                 employee.setEmail(rs.getString(3));
                 employee.setCountry(rs.getString(4));
             }
-            connection.close();
 
         } catch (SQLException exception) {
             exception.printStackTrace();
-        }
-        return employee;
+        } finally {
+            connection.close();
+        } return employee;
     }
 
-    public static List<Employee> getAllEmployees() {
+    public static List<Employee> getAllEmployees() throws SQLException {
 
         List<Employee> listEmployees = new ArrayList<>();
+        Connection connection = EmployeeRepository.getConnection();
 
         try {
-            Connection connection = EmployeeRepository.getConnection();
             PreparedStatement ps = connection.prepareStatement("select * from users");
             ResultSet rs = ps.executeQuery();
 
@@ -137,11 +138,11 @@ public class EmployeeRepository {
 
                 listEmployees.add(employee);
             }
-            connection.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
-        }
-        return listEmployees;
+        } finally {
+            connection.close();
+        } return listEmployees;
     }
 }

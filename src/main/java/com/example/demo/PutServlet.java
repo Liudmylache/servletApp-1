@@ -7,12 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 @WebServlet("/putServlet")
 public class PutServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -29,13 +30,18 @@ public class PutServlet extends HttpServlet {
         employee.setEmail(email);
         employee.setCountry(request.getParameter("country"));
 
-        int status = EmployeeRepository.update(employee);
-
-        if (status > 0) {
-            response.sendRedirect("viewServlet");
-        } else {
-            out.println("Sorry! unable to update record");
+        int status;
+        try {
+            status = EmployeeRepository.update(employee);
+            if (status > 0) {
+                response.sendRedirect("viewServlet");
+            } else {
+                out.println("Sorry! unable to update record");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            out.close();
         }
-        out.close();
     }
 }
