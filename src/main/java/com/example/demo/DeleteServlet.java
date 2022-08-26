@@ -10,11 +10,11 @@ import java.io.IOException;
 @WebServlet("/deleteServlet")
 public class DeleteServlet extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String sid = request.getParameter("id");
         int id = Integer.parseInt(sid);
-        EmployeeRepository.delete(id);
+        CoffeeRepository.delete(id);
         response.sendRedirect("viewServlet");
     }
 }

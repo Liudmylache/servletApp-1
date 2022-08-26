@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,11 +17,11 @@ public class ViewServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        List<Employee> list;
+        List<Coffee> list;
         try {
-            list = EmployeeRepository.getAllEmployees();
-            for (Employee employee : list) {
-                out.print(employee);
+            list = CoffeeRepository.getAllCoffee();
+            for (Coffee coffee : list) {
+                out.print(coffee);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

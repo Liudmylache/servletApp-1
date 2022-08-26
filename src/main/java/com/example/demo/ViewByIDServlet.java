@@ -19,13 +19,13 @@ public class ViewByIDServlet extends HttpServlet {
         String sid = request.getParameter("id");
         int id = Integer.parseInt(sid);
 
-        Employee employee = null;
+        Coffee coffee = null;
         try {
-            employee = EmployeeRepository.getEmployeeById(id);
+            coffee = CoffeeRepository.getCoffeeById(id);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
-            out.print(employee);
+            out.print(coffee);
             out.close();
         }
     }

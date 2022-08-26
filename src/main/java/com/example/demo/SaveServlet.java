@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,21 +20,35 @@ public class SaveServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String country = request.getParameter("country");
 
-        Employee employee = new Employee();
+        String sprice = request.getParameter("price");
+        double price = Double.parseDouble(sprice);
 
-        employee.setName(name);
-        employee.setEmail(email);
-        employee.setCountry(country);
+        String ssugar = request.getParameter("sugar");
+        boolean sugar = Boolean.parseBoolean(ssugar);
+
+        String smilk = request.getParameter("milk");
+        boolean milk = Boolean.parseBoolean(smilk);
+
+        String scoffeeBeans = request.getParameter("coffeebeans");
+        int coffeeBeans = Integer.parseInt(scoffeeBeans);
+
+
+
+        Coffee coffee = new Coffee();
+
+        coffee.setName(name);
+        coffee.setPrice(price);
+        coffee.setSugar(sugar);
+        coffee.setMilk(milk);
+        coffee.setCoffeeBeans(coffeeBeans);
 
         //out.println(employee.toString());
         //out.println(EmployeeRepository.getConnection());
 
         int status;
         try {
-            status = EmployeeRepository.save(employee);
+            status = CoffeeRepository.save(coffee);
             if (status > 0) {
                 out.print("Record saved successfully!");
             } else {

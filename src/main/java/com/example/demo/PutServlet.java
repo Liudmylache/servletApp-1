@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -22,17 +21,30 @@ public class PutServlet extends HttpServlet {
         int id = Integer.parseInt(sid);
 
         String name = request.getParameter("name");
-        String email = request.getParameter("email");
 
-        Employee employee = new Employee();
-        employee.setId(id);
-        employee.setName(name);
-        employee.setEmail(email);
-        employee.setCountry(request.getParameter("country"));
+        String sprice = request.getParameter("price");
+        double price = Double.parseDouble(sprice);
+
+        String ssugar = request.getParameter("sugar");
+        boolean sugar = Boolean.parseBoolean(ssugar);
+
+        String smilk = request.getParameter("milk");
+        boolean milk = Boolean.parseBoolean(smilk);
+
+        String scoffeeBeans = request.getParameter("coffeebeans");
+        int coffeeBeans = Integer.parseInt(scoffeeBeans);
+
+        Coffee coffee = new Coffee();
+        coffee.setId(id);
+        coffee.setName(name);
+        coffee.setPrice(price);
+        coffee.setSugar(sugar);
+        coffee.setMilk(milk);
+        coffee.setCoffeeBeans(coffeeBeans);
 
         int status;
         try {
-            status = EmployeeRepository.update(employee);
+            status = CoffeeRepository.update(coffee);
             if (status > 0) {
                 response.sendRedirect("viewServlet");
             } else {
