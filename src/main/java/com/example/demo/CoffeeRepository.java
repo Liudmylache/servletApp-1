@@ -1,26 +1,33 @@
 package com.example.demo;
 
+
+import lombok.extern.slf4j.Slf4j;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+//@Logged
+@Slf4j
 public class CoffeeRepository {
 
-   /* public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws SQLException {
+
         getConnection();
+        getAllCoffee();
+        getCoffeeById(5);
 
-        Coffee coffee = new Coffee();
-
-        coffee.setName("Matcha");
-        coffee.setPrice(7.30);
-        coffee.setSugar(true);
-        coffee.setMilk(false);
-        coffee.setCoffeeBeans(15);
-        save(coffee);
+//        Coffee coffee = new Coffee();
+//        coffee.setName("MMMM");
+//        coffee.setPrice(7.30);
+//        coffee.setSugar(true);
+//        coffee.setMilk(false);
+//        coffee.setCoffeeBeans(15);
+//        update(coffee);
+//        save(coffee);
     }
 
-    */
-
+    @Logged
     public static Connection getConnection() {
 
         Connection connection = null;
@@ -38,10 +45,12 @@ public class CoffeeRepository {
         } catch (SQLException sqlException) {
             System.out.println(sqlException);
         }
+        log.info("connection");
         return connection;
     }
 
     public static int save(Coffee coffee) throws SQLException {
+        log.info("saving() coffee = {}", coffee);
         int status = 0;
         Connection connection = CoffeeRepository.getConnection();
         try {
@@ -59,10 +68,12 @@ public class CoffeeRepository {
             ex.printStackTrace();
         } finally {
             connection.close();
+            log.info("connection closed. Status:",status);
         } return status;
     }
 
     public static int update(Coffee coffee) throws SQLException {
+        log.info("updating() coffee = {} ", coffee);
 
         int status = 0;
 
@@ -82,10 +93,12 @@ public class CoffeeRepository {
             sqlException.printStackTrace();
         } finally {
             connection.close();
+            log.info("connection closed. Status:" + status);
         } return status;
     }
 
     public static int delete(int id) {
+        log.info("deleting() coffee id:"+ id);
 
         int status = 0;
 
@@ -100,10 +113,12 @@ public class CoffeeRepository {
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
+        log.info("connection closed. Status:" + status);
         return status;
     }
 
     public static Coffee getCoffeeById(int id) throws SQLException {
+        log.info("gettingCoffeebyId() coffee id:" + id);
 
         Coffee coffee = new Coffee();
         Connection connection = CoffeeRepository.getConnection();
@@ -125,10 +140,12 @@ public class CoffeeRepository {
             exception.printStackTrace();
         } finally {
             connection.close();
+            log.info("connection closed" );
         } return coffee;
     }
 
     public static List<Coffee> getAllCoffee() throws SQLException {
+        log.info("gettingAllCoffee()");
 
         List<Coffee> listCoffees = new ArrayList<>();
         Connection connection = CoffeeRepository.getConnection();
@@ -155,6 +172,7 @@ public class CoffeeRepository {
             e.printStackTrace();
         } finally {
             connection.close();
+            log.info("connection closed");
         } return listCoffees;
     }
 }
