@@ -7,25 +7,25 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.List;
 
-@WebServlet("/viewServlet")
-public class ViewServlet extends HttpServlet {
 
+@WebServlet("/viewCoffeeByIDServlet")
+public class ViewCoffeeByIDServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        List<Coffee> list;
+        String sid = request.getParameter("id");
+        int id = Integer.parseInt(sid);
+
+        Coffee coffee = null;
         try {
-            list = CoffeeRepository.getAllCoffee();
-            for (Coffee coffee : list) {
-                out.print(coffee);
-            }
+            coffee = CoffeeRepository.getCoffeeById(id);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
+            out.print(coffee);
             out.close();
         }
     }

@@ -48,7 +48,7 @@ public class SaveServlet extends HttpServlet {
 
         int status;
         try {
-            status = CoffeeRepository.save(coffee);
+            status = CoffeeRepository.saveCoffee(coffee);
             if (status > 0) {
                 out.print("Record saved successfully!");
             } else {
