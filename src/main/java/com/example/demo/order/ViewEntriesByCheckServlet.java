@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.order;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,25 +7,28 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.List;
 
+@WebServlet("/viewEntriesByCheckServlet")
+public class ViewEntriesByCheckServlet extends HttpServlet {
 
-@WebServlet("/viewCoffeeByIDServlet")
-public class ViewCoffeeByIDServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        String sid = request.getParameter("id");
-        int id = Integer.parseInt(sid);
+        String scheckId = request.getParameter("checkid");
+        int checkId = Integer.parseInt(scheckId);
 
-        Coffee coffee = null;
+        List<Order> list;
         try {
-            coffee = CoffeeRepository.getCoffeeById(id);
+            list = OrderRepository.getEntriesByCheckId(checkId);
+            for (Order order : list) {
+                out.print(order);
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
-            out.print(coffee);
             out.close();
         }
     }

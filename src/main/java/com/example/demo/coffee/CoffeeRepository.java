@@ -1,6 +1,7 @@
-package com.example.demo;
+package com.example.demo.coffee;
 
 
+import com.example.demo.Logged;
 import lombok.extern.slf4j.Slf4j;
 
 import java.sql.*;
@@ -11,21 +12,16 @@ import java.util.List;
 @Slf4j
 public class CoffeeRepository {
 
-    public static void main(String[] args) throws SQLException {
-
-        getConnection();
-        getOrderById(1);
-
-        Check check = new Check();
-        check.setGuestName("Mua");
-        check.setQuantity(1);
-        check.setCoffeeId(3);
-        check.setTotal(7.30);
-
-        add(check);
-        System.out.println(check);
-
-    }
+//    public static void main(String[] args) throws SQLException {
+//
+//        getConnection();
+//        Coffee coffee = new Coffee();
+//        coffee.setName("Chai");
+//        coffee.setPrice(5.50);
+//        coffee.setSugar(false);
+//        coffee.setMilk(false);
+//        saveCoffee(coffee);
+//    }
 
     @Logged
     public static Connection getConnection() {
@@ -175,102 +171,5 @@ public class CoffeeRepository {
             connection.close();
             log.info("connection closed");
         } return listCoffees;
-    }
-
-    public static int add(Check check) throws SQLException {
-        log.info("saving() check = {}", check);
-        int status = 0;
-        Connection connection = CoffeeRepository.getConnection();
-        try {
-            PreparedStatement ps = connection.prepareStatement("insert into checks(guestname,quantity,coffeeid,total) values (?,?,?,?)");
-            ps.setString(1, check.getGuestName());
-            ps.setInt(2, check.getQuantity());
-            ps.setInt(3, check.getCoffeeId());
-            ps.setDouble(4, check.getTotal());
-
-            status = ps.executeUpdate();
-
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            connection.close();
-            log.info("connection closed. Status:",status);
-        } return status;
-    }
-
-    public static Check getOrderById(int orderId) throws SQLException {
-        log.info("gettingOrderById() order id:" + orderId);
-
-        Check check = new Check();
-        Connection connection = CoffeeRepository.getConnection();
-
-        try {
-            PreparedStatement ps = connection.prepareStatement("select * from checks where orderid=?");
-            ps.setInt(1, orderId);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                check.setOrderId(rs.getInt(1));
-                check.setGuestName(rs.getString(2));
-                check.setQuantity(rs.getInt(3));
-                check.setCoffeeId(rs.getInt(4));
-                check.setTotal(rs.getDouble(5));
-            }
-
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-        } finally {
-            connection.close();
-            log.info("connection closed" );
-        } return check;
-    }
-    public static List<Check> getAllCheck() throws SQLException {
-        log.info("gettingAllCheck()");
-
-        List<Check> listCheck = new ArrayList<>();
-        Connection connection = CoffeeRepository.getConnection();
-
-        try {
-            PreparedStatement ps = connection.prepareStatement("select * from checks");
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-
-                Check check = new Check();
-
-                check.setOrderId(rs.getInt(1));
-                check.setGuestName(rs.getString(2));
-                check.setQuantity(rs.getInt(3));
-                check.setCoffeeId(rs.getInt(4));
-                check.setTotal(rs.getDouble(5));
-
-                listCheck.add(check);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            connection.close();
-            log.info("connection closed");
-        } return listCheck;
-    }
-    public static int deleteCheck(int orderId) {
-        log.info("deleting() check orderId:"+ orderId);
-
-        int status = 0;
-
-        try {
-            Connection connection = CoffeeRepository.getConnection();
-            PreparedStatement ps = connection.prepareStatement("delete from checks where orderid=?");
-            ps.setInt(1, orderId);
-            status = ps.executeUpdate();
-
-            connection.close();
-
-        } catch (SQLException exception) {
-            exception.printStackTrace();
-        }
-        log.info("connection closed. Status:" + status);
-        return status;
     }
 }

@@ -1,4 +1,6 @@
-package com.example.demo;
+package com.example.demo.check;
+
+import com.example.demo.coffee.CoffeeRepository;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,9 +14,9 @@ public class DeleteCheckServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String sorderId = request.getParameter("orderid");
-        int orderId = Integer.parseInt(sorderId);
-        CoffeeRepository.deleteCheck(orderId);
+        String scheckId = request.getParameter("checkid");
+        int checkID = Integer.parseInt(scheckId);
+        CheckRepository.deleteCheckById(checkID);
         response.sendRedirect("viewCheckServlet");
     }
 }

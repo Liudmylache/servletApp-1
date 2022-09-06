@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.coffee;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,19 +9,19 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/viewCheckServlet")
-public class ViewCheckServlet extends HttpServlet {
+@WebServlet("/viewCoffeeServlet")
+public class ViewCoffeeServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
-        List<Check> list;
+        List<Coffee> list;
         try {
-            list = CoffeeRepository.getAllCheck();
-            for (Check check : list) {
-                out.print(check);
+            list = CoffeeRepository.getAllCoffee();
+            for (Coffee coffee : list) {
+                out.print(coffee);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.order;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
-@WebServlet("/addServlet")
-public class AddServlet extends HttpServlet {
+@WebServlet("/addOrderServlet")
+public class AddOrderServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -20,31 +20,33 @@ public class AddServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
 
-        String guestName = request.getParameter("guestname");
-
-        String squantity = request.getParameter("quantity");
-        int quantity = Integer.parseInt(squantity);
+        String scheckId = request.getParameter("checkid");
+        int checkId = Integer.parseInt(scheckId);
 
         String scoffeeId = request.getParameter("coffeeid");
         int coffeeId = Integer.parseInt(scoffeeId);
 
-        String stotal = request.getParameter("total");
-        double total = Double.parseDouble(stotal);
+        String squantity = request.getParameter("quantity");
+        int quantity = Integer.parseInt(squantity);
+
+//        String sitemPrice = request.getParameter("itemprice");
+//        double itemPrice = Double.parseDouble(sitemPrice);
+
+//        String sentryTotal = request.getParameter("entrytotal");
+//        double entryTotal = Double.parseDouble(sentryTotal);
 
 
-        Check check = new Check();
+        Order order = new Order();
 
-        check.setGuestName(guestName);
-        check.setQuantity(quantity);
-        check.setCoffeeId(coffeeId);
-        check.setTotal(total);
-
-        //out.println(employee.toString());
-        //out.println(EmployeeRepository.getConnection());
+        order.setCheckId(checkId);
+        order.setCoffeeId(coffeeId);
+        order.setQuantity(quantity);
+//        order.setItemPrice(itemPrice);
+//        order.setEntryTotal(entryTotal);
 
         int status;
         try {
-            status = CoffeeRepository.add(check);
+            status = OrderRepository.addEntry(order);
             if (status > 0) {
                 out.print("Record added successfully!");
             } else {
@@ -55,6 +57,5 @@ public class AddServlet extends HttpServlet {
         } finally {
             out.close();
         }
-        //out.println(status);
     }
 }

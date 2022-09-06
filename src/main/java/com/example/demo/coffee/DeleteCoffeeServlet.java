@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.coffee;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,6 +15,6 @@ public class DeleteCoffeeServlet extends HttpServlet {
         String sid = request.getParameter("id");
         int id = Integer.parseInt(sid);
         CoffeeRepository.deleteCoffee(id);
-        response.sendRedirect("viewServlet");
+        response.sendRedirect("viewCoffeeServlet");
     }
 }
