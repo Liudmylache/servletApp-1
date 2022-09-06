@@ -1,0 +1,363 @@
+2022-09-05 18:42:52 INFO  OrderRepository:183 - getting all entries by check id1
+2022-09-05 18:42:52 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 18:42:52 INFO  OrderRepository:46 - connection
+2022-09-05 18:42:52 ERROR stderr:71 - org.postgresql.util.PSQLException: ERROR: operator does not exist: character varying = integer
+2022-09-05 18:42:52 ERROR stderr:71 -   Hint: No operator matches the given name and argument types. You might need to add explicit type casts.
+2022-09-05 18:42:52 ERROR stderr:71 -   Position: 35
+2022-09-05 18:42:52 ERROR stderr:71 - 	at deployment.demo.war//org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at deployment.demo.war//org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at deployment.demo.war//org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at deployment.demo.war//org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:496)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at deployment.demo.war//org.postgresql.jdbc.PgStatement.execute(PgStatement.java:413)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at deployment.demo.war//org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:190)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at deployment.demo.war//org.postgresql.jdbc.PgPreparedStatement.executeQuery(PgPreparedStatement.java:134)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at deployment.demo.war//com.example.demo.order.OrderRepository.getEntriesByCheckId(OrderRepository.java:191)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at deployment.demo.war//com.example.demo.order.ViewEntriesByCheckServlet.doGet(ViewEntriesByCheckServlet.java:25)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at javax.servlet.api@2.0.0.Final//javax.servlet.http.HttpServlet.service(HttpServlet.java:503)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at javax.servlet.api@2.0.0.Final//javax.servlet.http.HttpServlet.service(HttpServlet.java:590)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletHandler.handleRequest(ServletHandler.java:74)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.security.ServletSecurityRoleHandler.handleRequest(ServletSecurityRoleHandler.java:62)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletChain$1.handleRequest(ServletChain.java:68)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletDispatchingHandler.handleRequest(ServletDispatchingHandler.java:36)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at org.wildfly.security.elytron-web.undertow-server@1.10.1.Final//org.wildfly.elytron.web.undertow.server.ElytronRunAsHandler.lambda$handleRequest$1(ElytronRunAsHandler.java:68)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at org.wildfly.security.elytron-base@1.19.0.Final//org.wildfly.security.auth.server.FlexibleIdentityAssociation.runAsFunctionEx(FlexibleIdentityAssociation.java:103)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at org.wildfly.security.elytron-base@1.19.0.Final//org.wildfly.security.auth.server.Scoped.runAsFunctionEx(Scoped.java:161)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at org.wildfly.security.elytron-base@1.19.0.Final//org.wildfly.security.auth.server.Scoped.runAs(Scoped.java:73)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at org.wildfly.security.elytron-web.undertow-server@1.10.1.Final//org.wildfly.elytron.web.undertow.server.ElytronRunAsHandler.handleRequest(ElytronRunAsHandler.java:67)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.RedirectDirHandler.handleRequest(RedirectDirHandler.java:68)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.security.SSLInformationAssociationHandler.handleRequest(SSLInformationAssociationHandler.java:117)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.security.ServletAuthenticationCallHandler.handleRequest(ServletAuthenticationCallHandler.java:57)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.core@2.2.17.Final//io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.core@2.2.17.Final//io.undertow.security.handlers.AbstractConfidentialityHandler.handleRequest(AbstractConfidentialityHandler.java:46)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.security.ServletConfidentialityConstraintHandler.handleRequest(ServletConfidentialityConstraintHandler.java:64)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.core@2.2.17.Final//io.undertow.security.handlers.AbstractSecurityContextAssociationHandler.handleRequest(AbstractSecurityContextAssociationHandler.java:43)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at org.wildfly.security.elytron-web.undertow-server-servlet@1.10.1.Final//org.wildfly.elytron.web.undertow.server.servlet.CleanUpHandler.handleRequest(CleanUpHandler.java:38)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.core@2.2.17.Final//io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at org.wildfly.extension.undertow@26.1.1.Final//org.wildfly.extension.undertow.security.jacc.JACCContextIdHandler.handleRequest(JACCContextIdHandler.java:61)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.core@2.2.17.Final//io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at org.wildfly.extension.undertow@26.1.1.Final//org.wildfly.extension.undertow.deployment.GlobalRequestControllerHandler.handleRequest(GlobalRequestControllerHandler.java:68)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.SendErrorPageHandler.handleRequest(SendErrorPageHandler.java:52)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.core@2.2.17.Final//io.undertow.server.handlers.PredicateHandler.handleRequest(PredicateHandler.java:43)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler.handleFirstRequest(ServletInitialHandler.java:275)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler.access$100(ServletInitialHandler.java:79)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:134)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler$2.call(ServletInitialHandler.java:131)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.core.ServletRequestContextThreadSetupAction$1.call(ServletRequestContextThreadSetupAction.java:48)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.core.ContextClassLoaderSetupAction$1.call(ContextClassLoaderSetupAction.java:43)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at org.wildfly.extension.undertow@26.1.1.Final//org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at org.wildfly.extension.undertow@26.1.1.Final//org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at org.wildfly.extension.undertow@26.1.1.Final//org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at org.wildfly.extension.undertow@26.1.1.Final//org.wildfly.extension.undertow.deployment.UndertowDeploymentInfoService$UndertowThreadSetupAction.lambda$create$0(UndertowDeploymentInfoService.java:1544)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler.dispatchRequest(ServletInitialHandler.java:255)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler.access$000(ServletInitialHandler.java:79)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.servlet@2.2.17.Final//io.undertow.servlet.handlers.ServletInitialHandler$1.handleRequest(ServletInitialHandler.java:100)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.core@2.2.17.Final//io.undertow.server.Connectors.executeRootHandler(Connectors.java:387)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at io.undertow.core@2.2.17.Final//io.undertow.server.HttpServerExchange$1.run(HttpServerExchange.java:852)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at org.jboss.threads@2.4.0.Final//org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:1990)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1486)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at org.jboss.threads@2.4.0.Final//org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1377)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at org.jboss.xnio@3.8.7.Final//org.xnio.XnioWorker$WorkerThreadFactory$1$1.run(XnioWorker.java:1282)
+2022-09-05 18:42:52 ERROR stderr:71 - 	at java.base/java.lang.Thread.run(Thread.java:833)
+2022-09-05 18:42:52 INFO  OrderRepository:212 - connection closed
+2022-09-05 18:58:48 INFO  OrderRepository:38 - connection
+2022-09-05 18:58:48 INFO  OrderRepository:175 - getting all entries by check id1
+2022-09-05 18:58:48 INFO  OrderRepository:38 - connection
+2022-09-05 18:58:48 INFO  OrderRepository:179 - creating a list of Entries
+2022-09-05 18:58:48 INFO  OrderRepository:204 - connection closed
+2022-09-05 19:08:01 INFO  OrderRepository:38 - connection
+2022-09-05 19:08:01 INFO  OrderRepository:175 - getting all entries by check id1
+2022-09-05 19:08:01 INFO  OrderRepository:38 - connection
+2022-09-05 19:08:01 INFO  OrderRepository:179 - creating a list of Entries
+2022-09-05 19:08:01 INFO  OrderRepository:204 - connection closed
+2022-09-05 19:09:25 INFO  OrderRepository:38 - connection
+2022-09-05 19:09:25 INFO  OrderRepository:175 - getting all entries by check id1
+2022-09-05 19:09:25 INFO  OrderRepository:38 - connection
+2022-09-05 19:09:25 INFO  OrderRepository:179 - creating a list of Entries
+2022-09-05 19:09:25 INFO  OrderRepository:204 - connection closed
+2022-09-05 19:10:03 INFO  OrderRepository:175 - getting all entries by check id1
+2022-09-05 19:10:03 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 19:10:03 INFO  OrderRepository:38 - connection
+2022-09-05 19:10:03 INFO  OrderRepository:179 - creating a list of Entries
+2022-09-05 19:10:03 INFO  OrderRepository:204 - connection closed
+2022-09-05 19:11:35 INFO  OrderRepository:141 - gettingAllOrders()
+2022-09-05 19:11:35 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 19:11:35 INFO  OrderRepository:38 - connection
+2022-09-05 19:11:35 INFO  OrderRepository:169 - connection closed
+2022-09-05 19:28:53 INFO  OrderRepository:45 - saving() entry = Order{entryId=0, checkId=2, coffeeId=14, quantity=2, itemPrice=0.0, entryTotal=0.0}
+
+2022-09-05 19:28:53 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 19:28:53 INFO  OrderRepository:39 - connection
+2022-09-05 19:28:53 INFO  CoffeeRepository:118 - gettingCoffeeById() coffee id:14
+2022-09-05 19:28:53 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 19:28:53 INFO  CoffeeRepository:44 - connection
+2022-09-05 19:28:53 INFO  CoffeeRepository:140 - connection closed
+2022-09-05 19:28:53 INFO  OrderRepository:68 - connection closed. Status:
+2022-09-05 20:08:22 INFO  CheckRepository:48 - saving() check = Check{checkId=0, guestName='Lucy', total=0.0}
+
+2022-09-05 20:08:22 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 20:08:22 INFO  CheckRepository:42 - connection
+2022-09-05 20:08:22 INFO  OrderRepository:182 - getting all entries by check id0
+2022-09-05 20:08:22 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 20:08:22 INFO  OrderRepository:39 - connection
+2022-09-05 20:08:22 INFO  OrderRepository:186 - creating a list of Entries
+2022-09-05 20:08:22 INFO  OrderRepository:211 - connection closed
+2022-09-05 20:08:22 INFO  CheckRepository:71 - connection closed. Status:
+2022-09-05 21:18:40 INFO  CheckRepository:42 - connection
+2022-09-05 21:18:40 INFO  CheckRepository:48 - saving() check = Check{checkId=0, guestName='Aaa', total=0.0}
+
+2022-09-05 21:18:40 INFO  CheckRepository:42 - connection
+2022-09-05 21:18:40 INFO  OrderRepository:182 - getting all entries by check id0
+2022-09-05 21:18:40 INFO  OrderRepository:39 - connection
+2022-09-05 21:18:40 INFO  OrderRepository:186 - creating a list of Entries
+2022-09-05 21:18:40 INFO  OrderRepository:211 - connection closed
+2022-09-05 21:18:40 INFO  CheckRepository:71 - connection closed. Status:
+2022-09-05 21:20:05 INFO  CheckRepository:48 - saving() check = Check{checkId=0, guestName='Lucy', total=0.0}
+
+2022-09-05 21:20:05 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 21:20:05 INFO  CheckRepository:42 - connection
+2022-09-05 21:20:05 INFO  OrderRepository:182 - getting all entries by check id0
+2022-09-05 21:20:05 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 21:20:05 INFO  OrderRepository:39 - connection
+2022-09-05 21:20:05 INFO  OrderRepository:186 - creating a list of Entries
+2022-09-05 21:20:05 INFO  OrderRepository:211 - connection closed
+2022-09-05 21:20:05 INFO  CheckRepository:71 - connection closed. Status:
+2022-09-05 21:22:43 INFO  CheckRepository:42 - connection
+2022-09-05 21:22:43 INFO  CheckRepository:48 - saving() check = Check{checkId=0, guestName='Aaa', total=0.0}
+
+2022-09-05 21:22:43 INFO  CheckRepository:42 - connection
+2022-09-05 21:22:43 INFO  OrderRepository:182 - getting all entries by check id0
+2022-09-05 21:22:43 INFO  OrderRepository:39 - connection
+2022-09-05 21:22:43 INFO  OrderRepository:186 - creating a list of Entries
+2022-09-05 21:22:43 INFO  OrderRepository:211 - connection closed
+2022-09-05 21:22:43 INFO  CheckRepository:71 - connection closed. Status:
+2022-09-05 21:25:34 INFO  CheckRepository:43 - connection
+2022-09-05 21:25:34 INFO  CheckRepository:49 - saving() check = Check{checkId=0, guestName='Aaa', total=0.0}
+
+2022-09-05 21:25:34 INFO  CheckRepository:43 - connection
+2022-09-05 21:25:34 INFO  OrderRepository:182 - getting all entries by check id0
+2022-09-05 21:25:34 INFO  OrderRepository:39 - connection
+2022-09-05 21:25:34 INFO  OrderRepository:186 - creating a list of Entries
+2022-09-05 21:25:34 INFO  OrderRepository:211 - connection closed
+2022-09-05 21:25:34 INFO  CheckRepository:72 - connection closed. Status:
+2022-09-05 21:26:37 INFO  CheckRepository:43 - connection
+2022-09-05 21:26:37 INFO  CheckRepository:49 - saving() check = Check{checkId=0, guestName='Aaa', total=0.0}
+
+2022-09-05 21:26:37 INFO  CheckRepository:43 - connection
+2022-09-05 21:26:37 INFO  OrderRepository:182 - getting all entries by check id0
+2022-09-05 21:26:37 INFO  OrderRepository:39 - connection
+2022-09-05 21:26:37 INFO  OrderRepository:186 - creating a list of Entries
+2022-09-05 21:26:37 INFO  OrderRepository:211 - connection closed
+2022-09-05 21:26:37 INFO  CheckRepository:72 - connection closed. Status:
+2022-09-05 21:29:36 INFO  CheckRepository:43 - connection
+2022-09-05 21:30:09 INFO  CheckRepository:49 - saving() check = Check{checkId=0, guestName='Aaa', total=0.0}
+
+2022-09-05 21:30:09 INFO  CheckRepository:43 - connection
+2022-09-05 21:30:09 INFO  OrderRepository:182 - getting all entries by check id0
+2022-09-05 21:30:09 INFO  OrderRepository:39 - connection
+2022-09-05 21:30:09 INFO  OrderRepository:186 - creating a list of Entries
+2022-09-05 21:30:09 INFO  OrderRepository:211 - connection closed
+2022-09-05 21:30:09 INFO  CheckRepository:72 - connection closed. Status:
+2022-09-05 21:32:52 INFO  CheckRepository:43 - connection
+2022-09-05 21:32:52 INFO  CheckRepository:49 - saving() check = Check{checkId=0, guestName='Aaa', total=0.0}
+
+2022-09-05 21:32:52 INFO  CheckRepository:43 - connection
+2022-09-05 21:32:52 INFO  OrderRepository:182 - getting all entries by check id0
+2022-09-05 21:32:52 INFO  OrderRepository:39 - connection
+2022-09-05 21:32:52 INFO  OrderRepository:186 - creating a list of Entries
+2022-09-05 21:32:52 INFO  OrderRepository:211 - connection closed
+2022-09-05 21:32:52 INFO  CheckRepository:72 - connection closed. Status:
+2022-09-05 21:33:35 INFO  CheckRepository:43 - connection
+2022-09-05 21:33:35 INFO  CheckRepository:49 - saving() check = Check{checkId=0, guestName='Aaa', total=0.0}
+
+2022-09-05 21:33:35 INFO  CheckRepository:43 - connection
+2022-09-05 21:33:35 INFO  OrderRepository:182 - getting all entries by check id0
+2022-09-05 21:33:35 INFO  OrderRepository:39 - connection
+2022-09-05 21:33:35 INFO  OrderRepository:186 - creating a list of Entries
+2022-09-05 21:33:35 INFO  OrderRepository:211 - connection closed
+2022-09-05 21:33:35 INFO  CheckRepository:72 - connection closed. Status:
+2022-09-05 21:45:05 INFO  CheckRepository:42 - connection
+2022-09-05 21:45:05 INFO  CheckRepository:76 - saving() check = Check{checkId=0, guestName='Alla', total=0.0}
+
+2022-09-05 21:45:05 INFO  CheckRepository:42 - connection
+2022-09-05 21:45:05 INFO  CheckRepository:94 - connection closed. Status:
+2022-09-05 22:23:49 INFO  CheckRepository:121 - updating() check = Check{checkId=6, guestName='null', total=0.0}
+ 
+2022-09-05 22:23:49 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 22:23:49 INFO  CheckRepository:42 - connection
+2022-09-05 22:23:49 INFO  CheckRepository:138 - connection closed. Status:1
+2022-09-05 22:23:49 INFO  CheckRepository:187 - gettingAllChecks()
+2022-09-05 22:23:49 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 22:23:49 INFO  CheckRepository:42 - connection
+2022-09-05 22:23:49 INFO  CheckRepository:212 - connection closed
+2022-09-05 22:27:48 INFO  CheckRepository:97 - calculating total = 6
+2022-09-05 22:27:48 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 22:27:48 INFO  CheckRepository:42 - connection
+2022-09-05 22:27:48 INFO  OrderRepository:182 - getting all entries by check id6
+2022-09-05 22:27:48 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 22:27:48 INFO  OrderRepository:39 - connection
+2022-09-05 22:27:48 INFO  OrderRepository:186 - creating a list of Entries
+2022-09-05 22:27:48 INFO  OrderRepository:211 - connection closed
+2022-09-05 22:27:48 INFO  CheckRepository:163 - gettingCheckById() check id:6
+2022-09-05 22:27:48 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 22:27:48 INFO  CheckRepository:42 - connection
+2022-09-05 22:27:48 INFO  CheckRepository:182 - connection closed
+2022-09-05 22:27:48 INFO  CheckRepository:121 - updating() check = Check{checkId=6, guestName='null', total=0.0}
+ 
+2022-09-05 22:27:48 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 22:27:48 INFO  CheckRepository:42 - connection
+2022-09-05 22:27:48 INFO  CheckRepository:138 - connection closed. Status:1
+2022-09-05 22:27:48 INFO  CheckRepository:115 - connection closed. Status:0
+2022-09-05 22:33:58 INFO  CheckRepository:43 - connection
+2022-09-05 22:33:58 INFO  CheckRepository:98 - calculating total = 6
+2022-09-05 22:33:58 INFO  CheckRepository:43 - connection
+2022-09-05 22:33:58 INFO  OrderRepository:182 - getting all entries by check id6
+2022-09-05 22:33:58 INFO  OrderRepository:39 - connection
+2022-09-05 22:33:58 INFO  OrderRepository:186 - creating a list of Entries
+2022-09-05 22:33:58 INFO  OrderRepository:211 - connection closed
+2022-09-05 22:33:58 INFO  CheckRepository:164 - gettingCheckById() check id:6
+2022-09-05 22:33:58 INFO  CheckRepository:43 - connection
+2022-09-05 22:33:58 INFO  CheckRepository:183 - connection closed
+2022-09-05 22:33:58 INFO  CheckRepository:122 - updating() check = Check{checkId=6, guestName='null', total=0.0}
+ 
+2022-09-05 22:33:58 INFO  CheckRepository:43 - connection
+2022-09-05 22:33:58 INFO  CheckRepository:139 - connection closed. Status:1
+2022-09-05 22:33:58 INFO  CheckRepository:116 - connection closed. Status:0
+2022-09-05 22:39:56 INFO  CheckRepository:43 - connection
+2022-09-05 22:39:56 INFO  CheckRepository:98 - calculating total = 6
+2022-09-05 22:39:56 INFO  CheckRepository:43 - connection
+2022-09-05 22:39:56 INFO  OrderRepository:182 - getting all entries by check id6
+2022-09-05 22:39:56 INFO  OrderRepository:39 - connection
+2022-09-05 22:39:56 INFO  OrderRepository:186 - creating a list of Entries
+2022-09-05 22:39:56 INFO  OrderRepository:211 - connection closed
+2022-09-05 22:39:56 INFO  CheckRepository:122 - updating() check = Check{checkId=0, guestName='null', total=121.5}
+ 
+2022-09-05 22:39:56 INFO  CheckRepository:43 - connection
+2022-09-05 22:39:56 INFO  CheckRepository:139 - connection closed. Status:0
+2022-09-05 22:39:56 INFO  CheckRepository:116 - connection closed. Status:0
+2022-09-05 22:40:58 INFO  CheckRepository:43 - connection
+2022-09-05 22:40:58 INFO  CheckRepository:98 - calculating total = 6
+2022-09-05 22:40:58 INFO  CheckRepository:43 - connection
+2022-09-05 22:40:59 INFO  OrderRepository:182 - getting all entries by check id6
+2022-09-05 22:40:59 INFO  OrderRepository:39 - connection
+2022-09-05 22:40:59 INFO  OrderRepository:186 - creating a list of Entries
+2022-09-05 22:40:59 INFO  OrderRepository:211 - connection closed
+2022-09-05 22:40:59 INFO  CheckRepository:123 - updating() check = Check{checkId=6, guestName='null', total=121.5}
+ 
+2022-09-05 22:40:59 INFO  CheckRepository:43 - connection
+2022-09-05 22:40:59 INFO  CheckRepository:140 - connection closed. Status:1
+2022-09-05 22:40:59 INFO  CheckRepository:117 - connection closed. Status:0
+2022-09-05 22:42:28 INFO  CheckRepository:43 - connection
+2022-09-05 22:42:28 INFO  CheckRepository:98 - calculating total = 6
+2022-09-05 22:42:28 INFO  CheckRepository:43 - connection
+2022-09-05 22:42:28 INFO  OrderRepository:182 - getting all entries by check id6
+2022-09-05 22:42:28 INFO  OrderRepository:39 - connection
+2022-09-05 22:42:28 INFO  OrderRepository:186 - creating a list of Entries
+2022-09-05 22:42:28 INFO  OrderRepository:211 - connection closed
+2022-09-05 22:42:28 INFO  CheckRepository:165 - gettingCheckById() check id:6
+2022-09-05 22:42:28 INFO  CheckRepository:43 - connection
+2022-09-05 22:42:28 INFO  CheckRepository:184 - connection closed
+2022-09-05 22:42:28 INFO  CheckRepository:123 - updating() check = Check{checkId=6, guestName='null', total=121.5}
+ 
+2022-09-05 22:42:28 INFO  CheckRepository:43 - connection
+2022-09-05 22:42:28 INFO  CheckRepository:140 - connection closed. Status:1
+2022-09-05 22:42:28 INFO  CheckRepository:117 - connection closed. Status:0
+2022-09-05 22:43:03 INFO  CheckRepository:43 - connection
+2022-09-05 22:43:03 INFO  CheckRepository:98 - calculating total = 6
+2022-09-05 22:43:03 INFO  CheckRepository:43 - connection
+2022-09-05 22:43:03 INFO  OrderRepository:182 - getting all entries by check id6
+2022-09-05 22:43:03 INFO  OrderRepository:39 - connection
+2022-09-05 22:43:03 INFO  OrderRepository:186 - creating a list of Entries
+2022-09-05 22:43:03 INFO  OrderRepository:211 - connection closed
+2022-09-05 22:43:03 INFO  CheckRepository:165 - gettingCheckById() check id:6
+2022-09-05 22:43:03 INFO  CheckRepository:43 - connection
+2022-09-05 22:43:03 INFO  CheckRepository:184 - connection closed
+2022-09-05 22:43:03 INFO  CheckRepository:123 - updating() check = Check{checkId=6, guestName='cdscds', total=121.5}
+ 
+2022-09-05 22:43:03 INFO  CheckRepository:43 - connection
+2022-09-05 22:43:03 INFO  CheckRepository:140 - connection closed. Status:1
+2022-09-05 22:43:03 INFO  CheckRepository:117 - connection closed. Status:0
+2022-09-05 22:46:42 INFO  CheckRepository:98 - calculating total = 6
+2022-09-05 22:46:42 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 22:46:42 INFO  CheckRepository:43 - connection
+2022-09-05 22:46:42 INFO  OrderRepository:182 - getting all entries by check id6
+2022-09-05 22:46:42 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 22:46:42 INFO  OrderRepository:39 - connection
+2022-09-05 22:46:42 INFO  OrderRepository:186 - creating a list of Entries
+2022-09-05 22:46:42 INFO  OrderRepository:211 - connection closed
+2022-09-05 22:46:42 INFO  CheckRepository:165 - gettingCheckById() check id:6
+2022-09-05 22:46:42 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 22:46:42 INFO  CheckRepository:43 - connection
+2022-09-05 22:46:42 INFO  CheckRepository:184 - connection closed
+2022-09-05 22:46:42 INFO  CheckRepository:123 - updating() check = Check{checkId=6, guestName='Alla', total=121.5}
+ 
+2022-09-05 22:46:42 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 22:46:42 INFO  CheckRepository:43 - connection
+2022-09-05 22:46:42 INFO  CheckRepository:140 - connection closed. Status:1
+2022-09-05 22:46:42 INFO  CheckRepository:117 - connection closed. Status:0
+2022-09-05 22:50:09 INFO  CheckRepository:98 - calculating total = 6
+2022-09-05 22:50:09 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 22:50:09 INFO  CheckRepository:43 - connection
+2022-09-05 22:50:09 INFO  OrderRepository:182 - getting all entries by check id6
+2022-09-05 22:50:09 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 22:50:09 INFO  OrderRepository:39 - connection
+2022-09-05 22:50:09 INFO  OrderRepository:186 - creating a list of Entries
+2022-09-05 22:50:09 INFO  OrderRepository:211 - connection closed
+2022-09-05 22:50:09 INFO  CheckRepository:165 - gettingCheckById() check id:6
+2022-09-05 22:50:09 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 22:50:09 INFO  CheckRepository:43 - connection
+2022-09-05 22:50:09 INFO  CheckRepository:184 - connection closed
+2022-09-05 22:50:09 INFO  CheckRepository:123 - updating() check = Check{checkId=6, guestName='Alla', total=121.5}
+ 
+2022-09-05 22:50:09 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 22:50:09 INFO  CheckRepository:43 - connection
+2022-09-05 22:50:09 INFO  CheckRepository:140 - connection closed. Status:1
+2022-09-05 22:50:09 INFO  CheckRepository:117 - connection closed. Status:0
+2022-09-05 22:50:09 INFO  CheckRepository:189 - gettingAllChecks()
+2022-09-05 22:50:09 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 22:50:09 INFO  CheckRepository:43 - connection
+2022-09-05 22:50:09 INFO  CheckRepository:214 - connection closed
+2022-09-05 23:31:34 INFO  CheckRepository:98 - calculating total = 1
+2022-09-05 23:31:34 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 23:31:34 INFO  CheckRepository:43 - connection
+2022-09-05 23:31:34 INFO  OrderRepository:182 - getting all entries by check id1
+2022-09-05 23:31:34 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 23:31:34 INFO  OrderRepository:39 - connection
+2022-09-05 23:31:34 INFO  OrderRepository:186 - creating a list of Entries
+2022-09-05 23:31:34 INFO  OrderRepository:211 - connection closed
+2022-09-05 23:31:34 INFO  CheckRepository:165 - gettingCheckById() check id:1
+2022-09-05 23:31:34 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 23:31:34 INFO  CheckRepository:43 - connection
+2022-09-05 23:31:34 INFO  CheckRepository:184 - connection closed
+2022-09-05 23:31:34 INFO  CheckRepository:123 - updating() check = Check{checkId=1, guestName='Alex', total=28.0}
+ 
+2022-09-05 23:31:34 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 23:31:34 INFO  CheckRepository:43 - connection
+2022-09-05 23:31:34 INFO  CheckRepository:140 - connection closed. Status:1
+2022-09-05 23:31:34 INFO  CheckRepository:117 - connection closed. Status:0
+2022-09-05 23:31:34 INFO  CheckRepository:189 - gettingAllChecks()
+2022-09-05 23:31:34 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 23:31:34 INFO  CheckRepository:43 - connection
+2022-09-05 23:31:34 INFO  CheckRepository:214 - connection closed
+2022-09-05 23:48:37 INFO  CheckRepository:98 - calculating total = 1
+2022-09-05 23:48:37 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 23:48:37 INFO  CheckRepository:43 - connection
+2022-09-05 23:48:37 INFO  OrderRepository:182 - getting all entries by check id1
+2022-09-05 23:48:37 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 23:48:37 INFO  OrderRepository:39 - connection
+2022-09-05 23:48:37 INFO  OrderRepository:186 - creating a list of Entries
+2022-09-05 23:48:37 INFO  OrderRepository:211 - connection closed
+2022-09-05 23:48:37 INFO  CheckRepository:165 - gettingCheckById() check id:1
+2022-09-05 23:48:37 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 23:48:37 INFO  CheckRepository:43 - connection
+2022-09-05 23:48:37 INFO  CheckRepository:184 - connection closed
+2022-09-05 23:48:37 INFO  CheckRepository:123 - updating() check = Check{checkId=1, guestName='Alex', total=29.5}
+ 
+2022-09-05 23:48:37 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 23:48:37 INFO  CheckRepository:43 - connection
+2022-09-05 23:48:37 INFO  CheckRepository:140 - connection closed. Status:1
+2022-09-05 23:48:37 INFO  CheckRepository:117 - connection closed. Status:0
+2022-09-05 23:48:37 INFO  CheckRepository:189 - gettingAllChecks()
+2022-09-05 23:48:37 INFO  stdout:71 - Connected to the PostgreSQL server successfully.
+2022-09-05 23:48:37 INFO  CheckRepository:43 - connection
+2022-09-05 23:48:37 INFO  CheckRepository:214 - connection closed
